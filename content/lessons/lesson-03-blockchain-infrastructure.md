@@ -5,15 +5,15 @@ course: defi-concepts
 ---
 
 <audio controls preload="metadata">
-  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-03/audio/lesson3%20Blockchain_Trilemma_and_Layer_2_Rollups.m4a" type="audio/mp4">
-  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-03/audio/lesson3%20Blockchain_Trilemma_and_Layer_2_Rollups.m4a" type="audio/x-m4a">
-  <p>Your browser does not support audio playback. <a href="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-03/audio/lesson3%20Blockchain_Trilemma_and_Layer_2_Rollups.m4a" download>Download audio file</a></p>
+  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-03/audio/lesson3 Blockchain_Trilemma_and_Layer_2_Rollups.m4a" type="audio/mp4">
+  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-03/audio/lesson3 Blockchain_Trilemma_and_Layer_2_Rollups.m4a" type="audio/x-m4a">
+  <p>Your browser does not support audio playback. <a href="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-03/audio/lesson3 Blockchain_Trilemma_and_Layer_2_Rollups.m4a" download>Download audio file</a></p>
 </audio>
 
 
 <video width="100%" controls preload="metadata">
-  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-03/video/lesson3%20The_Blockchain_Trilemma.mp4" type="video/mp4">
-  <p>Your browser does not support video playback. <a href="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-03/video/lesson3%20The_Blockchain_Trilemma.mp4" download>Download video file</a></p>
+  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-03/video/lesson3 The_Blockchain_Trilemma.mp4" type="video/mp4">
+  <p>Your browser does not support video playback. <a href="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-03/video/lesson3 The_Blockchain_Trilemma.mp4" download>Download video file</a></p>
 </video>
 
 

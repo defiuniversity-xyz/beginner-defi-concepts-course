@@ -5,15 +5,15 @@ course: defi-concepts
 ---
 
 <audio controls preload="metadata">
-  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-04/audio/lesson4%20Automated_Trust_Built_With_Money_Legos.m4a" type="audio/mp4">
-  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-04/audio/lesson4%20Automated_Trust_Built_With_Money_Legos.m4a" type="audio/x-m4a">
-  <p>Your browser does not support audio playback. <a href="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-04/audio/lesson4%20Automated_Trust_Built_With_Money_Legos.m4a" download>Download audio file</a></p>
+  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-04/audio/lesson4 Automated_Trust_Built_With_Money_Legos.m4a" type="audio/mp4">
+  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-04/audio/lesson4 Automated_Trust_Built_With_Money_Legos.m4a" type="audio/x-m4a">
+  <p>Your browser does not support audio playback. <a href="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-04/audio/lesson4 Automated_Trust_Built_With_Money_Legos.m4a" download>Download audio file</a></p>
 </audio>
 
 
 <video width="100%" controls preload="metadata">
-  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-04/video/lesson4%20Vending_Machines_to_Money_Legos.mp4" type="video/mp4">
-  <p>Your browser does not support video playback. <a href="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-04/video/lesson4%20Vending_Machines_to_Money_Legos.mp4" download>Download video file</a></p>
+  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-04/video/lesson4 Vending_Machines_to_Money_Legos.mp4" type="video/mp4">
+  <p>Your browser does not support video playback. <a href="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-04/video/lesson4 Vending_Machines_to_Money_Legos.mp4" download>Download video file</a></p>
 </video>
 
 

@@ -5,15 +5,15 @@ course: defi-concepts
 ---
 
 <audio controls preload="metadata">
-  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-11/audio/lesson11%20DeFi_Risk_Framework_Five_Mitigation_Steps.m4a" type="audio/mp4">
-  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-11/audio/lesson11%20DeFi_Risk_Framework_Five_Mitigation_Steps.m4a" type="audio/x-m4a">
-  <p>Your browser does not support audio playback. <a href="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-11/audio/lesson11%20DeFi_Risk_Framework_Five_Mitigation_Steps.m4a" download>Download audio file</a></p>
+  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-11/audio/lesson11 DeFi_Risk_Framework_Five_Mitigation_Steps.m4a" type="audio/mp4">
+  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-11/audio/lesson11 DeFi_Risk_Framework_Five_Mitigation_Steps.m4a" type="audio/x-m4a">
+  <p>Your browser does not support audio playback. <a href="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-11/audio/lesson11 DeFi_Risk_Framework_Five_Mitigation_Steps.m4a" download>Download audio file</a></p>
 </audio>
 
 
 <video width="100%" controls preload="metadata">
-  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-11/video/lesson11%20Navigating_DeFi_Risk.mp4" type="video/mp4">
-  <p>Your browser does not support video playback. <a href="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-11/video/lesson11%20Navigating_DeFi_Risk.mp4" download>Download video file</a></p>
+  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-11/video/lesson11 Navigating_DeFi_Risk.mp4" type="video/mp4">
+  <p>Your browser does not support video playback. <a href="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-11/video/lesson11 Navigating_DeFi_Risk.mp4" download>Download video file</a></p>
 </video>
 
 
