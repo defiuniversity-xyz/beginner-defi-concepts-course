@@ -922,13 +922,17 @@ If you're new to these concepts:
 
 **Audio:**
 ```markdown
-{% embed url="https://storage.googleapis.com/{bucket}/lesson-{NN}/audio/{filename}.m4a" %}
+{% embed url="https://storage.googleapis.com/{bucket}/lesson-{NN}/audio/{url-encoded-filename}.m4a" %}
 ```
+
+**Note:** Filenames must be URL-encoded (spaces → `%20`, commas → `%2C`, ampersands → `%26`)
 
 **Video:**
 ```markdown
-{% embed url="https://storage.googleapis.com/{bucket}/lesson-{NN}/video/{filename}.mp4" %}
+{% embed url="https://storage.googleapis.com/{bucket}/lesson-{NN}/video/{url-encoded-filename}.mp4" %}
 ```
+
+**Note:** Filenames must be URL-encoded (spaces → `%20`, commas → `%2C`, ampersands → `%26`)
 
 **Interactive Tool:**
 ```markdown
