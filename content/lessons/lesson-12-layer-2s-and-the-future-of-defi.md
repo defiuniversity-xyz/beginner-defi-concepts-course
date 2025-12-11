@@ -4,10 +4,17 @@ lesson_number: 12
 course: defi-concepts
 ---
 
-{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-12/audio/lesson12%20Rollups_Real_World_Assets_Institutional_DeFi.m4a" %}
+<audio controls preload="metadata">
+  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-12/audio/lesson12%20Rollups_Real_World_Assets_Institutional_DeFi.m4a" type="audio/mp4">
+  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-12/audio/lesson12%20Rollups_Real_World_Assets_Institutional_DeFi.m4a" type="audio/x-m4a">
+  <p>Your browser does not support audio playback. <a href="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-12/audio/lesson12%20Rollups_Real_World_Assets_Institutional_DeFi.m4a" download>Download audio file</a></p>
+</audio>
 
 
-{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-12/video/lesson12%20The_Future_of_DeFi.mp4" %}
+<video width="100%" controls preload="metadata">
+  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-12/video/lesson12%20The_Future_of_DeFi.mp4" type="video/mp4">
+  <p>Your browser does not support video playback. <a href="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-12/video/lesson12%20The_Future_of_DeFi.mp4" download>Download video file</a></p>
+</video>
 
 
 # Lesson 12: Layer 2s and the Future of DeFi

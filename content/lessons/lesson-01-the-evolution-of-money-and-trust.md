@@ -4,10 +4,17 @@ lesson_number: 1
 course: defi-concepts
 ---
 
-{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-01/audio/lesson1%20History_of_Blockchain_Before_Bitcoin.m4a" %}
+<audio controls preload="metadata">
+  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-01/audio/lesson1%20History_of_Blockchain_Before_Bitcoin.m4a" type="audio/mp4">
+  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-01/audio/lesson1%20History_of_Blockchain_Before_Bitcoin.m4a" type="audio/x-m4a">
+  <p>Your browser does not support audio playback. <a href="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-01/audio/lesson1%20History_of_Blockchain_Before_Bitcoin.m4a" download>Download audio file</a></p>
+</audio>
 
 
-{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-01/video/lesson1%20The_History_of_Trust.mp4" %}
+<video width="100%" controls preload="metadata">
+  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-01/video/lesson1%20The_History_of_Trust.mp4" type="video/mp4">
+  <p>Your browser does not support video playback. <a href="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-01/video/lesson1%20The_History_of_Trust.mp4" download>Download video file</a></p>
+</video>
 
 
 # Lesson 1: The Evolution of Money and Trust

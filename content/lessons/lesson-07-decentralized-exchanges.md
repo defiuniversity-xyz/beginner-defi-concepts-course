@@ -4,10 +4,17 @@ lesson_number: 7
 course: defi-concepts
 ---
 
-{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-07/audio/lesson7%20AMM_Math_and_Impermanent_Loss_Explained.m4a" %}
+<audio controls preload="metadata">
+  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-07/audio/lesson7%20AMM_Math_and_Impermanent_Loss_Explained.m4a" type="audio/mp4">
+  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-07/audio/lesson7%20AMM_Math_and_Impermanent_Loss_Explained.m4a" type="audio/x-m4a">
+  <p>Your browser does not support audio playback. <a href="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-07/audio/lesson7%20AMM_Math_and_Impermanent_Loss_Explained.m4a" download>Download audio file</a></p>
+</audio>
 
 
-{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-07/video/lesson7%20Engine_of_DeFi_Trading.mp4" %}
+<video width="100%" controls preload="metadata">
+  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-07/video/lesson7%20Engine_of_DeFi_Trading.mp4" type="video/mp4">
+  <p>Your browser does not support video playback. <a href="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-07/video/lesson7%20Engine_of_DeFi_Trading.mp4" download>Download video file</a></p>
+</video>
 
 
 # Lesson 7: Decentralized Exchanges

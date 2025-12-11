@@ -4,10 +4,17 @@ lesson_number: 9
 course: defi-concepts
 ---
 
-{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-09/audio/lesson9%20Stablecoin_Trilemma_and_Its_Three_Types.m4a" %}
+<audio controls preload="metadata">
+  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-09/audio/lesson9%20Stablecoin_Trilemma_and_Its_Three_Types.m4a" type="audio/mp4">
+  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-09/audio/lesson9%20Stablecoin_Trilemma_and_Its_Three_Types.m4a" type="audio/x-m4a">
+  <p>Your browser does not support audio playback. <a href="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-09/audio/lesson9%20Stablecoin_Trilemma_and_Its_Three_Types.m4a" download>Download audio file</a></p>
+</audio>
 
 
-{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-09/video/lesson9%20Stablecoins__Digital_Dollar.mp4" %}
+<video width="100%" controls preload="metadata">
+  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-09/video/lesson9%20Stablecoins__Digital_Dollar.mp4" type="video/mp4">
+  <p>Your browser does not support video playback. <a href="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-09/video/lesson9%20Stablecoins__Digital_Dollar.mp4" download>Download video file</a></p>
+</video>
 
 
 # Lesson 9: Stablecoins and Stability Mechanisms
