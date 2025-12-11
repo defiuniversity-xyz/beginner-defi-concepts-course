@@ -1,0 +1,70 @@
+---
+module: 3
+lesson_number: 9
+course: defi-concepts
+---
+
+{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-09/audio/lesson9 Stablecoin_Trilemma_and_Its_Three_Types.m4a" %}
+
+{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-09/video/lesson9 Stablecoins__Digital_Dollar.mp4" %}
+
+# Lesson 9: Stablecoins and Stability Mechanisms
+
+## 🎯 Core Concept: The Stability Trilemma
+
+Cryptocurrencies are volatile; a functional financial system requires a stable unit of account. Stablecoins bridge this gap, but their design is constrained by the **Stablecoin Trilemma**: a stablecoin can only optimize for two of three properties—**Decentralization, Stability, and Capital Efficiency**.
+
+
+![Stablecoin Trilemma Diagram](https://storage.googleapis.com/beginner-defi-concepts-gitbook-images/lessons/lesson_09/bdc09_01_stablecoin_trilemma_diagram.png)
+
+
+## 📚 Types of Stablecoins
+
+### Fiat-Collateralized (e.g., USDC, USDT)
+
+A centralized entity holds $1 in a bank account for every 1 token issued. These are capital efficient (1:1 backing) but suffer from centralization risk (custodian can freeze funds).
+
+### Crypto-Collateralized (e.g., DAI)
+
+Decentralized and trustless. Users lock volatile crypto assets in a smart contract to mint stablecoins. This requires over-collateralization to absorb volatility.
+
+### Algorithmic
+
+These attempt to maintain a peg via supply elasticity and incentives rather than full collateral backing. History (e.g., Terra/Luna) suggests these are highly risky and prone to "death spirals."
+
+
+![Stablecoin Types Comparison](https://storage.googleapis.com/beginner-defi-concepts-gitbook-images/lessons/lesson_09/bdc09_02_stablecoin_types_comparison.png)
+
+
+
+![Stability Mechanism Flowchart](https://storage.googleapis.com/beginner-defi-concepts-gitbook-images/lessons/lesson_09/bdc09_03_stability_mechanism_flowchart.png)
+
+## 🎮 Interactive: Stablecoin Comparison Tool
+
+Compare different stablecoins on the Trilemma axes—Decentralization, Stability, and Capital Efficiency:
+
+{% embed url="https://defi-university-app.web.app/interactives/defi-concepts/stablecoin-comparison.html?courseId=defi-concepts&interactionId=stablecoin-comparison" %}
+
+### Interactive DeFi Protocol Explorer
+
+Use this interactive tool to explore and compare different stablecoin protocols:
+
+{% embed url="https://defi-university-app.web.app/interactives/beginner-defi-concepts/defi-protocol-explorer.html?course=defi-concepts&id=defi-protocol-explorer-lesson9&topic=Stablecoins" %}
+
+### Interactive Token Economics Calculator
+
+Use this interactive tool to analyze stablecoin token economics:
+
+{% embed url="https://defi-university-app.web.app/interactives/beginner-defi-concepts/token-economics-calculator.html?course=defi-concepts&id=token-economics-calculator-lesson9&topic=Stablecoin%20Economics" %}
+
+## 🔑 Key Takeaways
+
+1. **The Trilemma is Real**: No stablecoin perfectly achieves all three properties
+2. **Fiat-Backed**: Most capital efficient but centralized
+3. **Crypto-Backed**: Decentralized but capital inefficient
+4. **Algorithmic**: Risky, prone to failure
+5. **Choose Based on Priorities**: Decentralization vs. efficiency vs. stability
+
+---
+
+**Next Lesson**: In Lesson 10, we'll explore flash loans and advanced DeFi primitives.

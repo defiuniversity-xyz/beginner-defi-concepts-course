@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Token Economics Calculator | DeFi University</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+        import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+        
+        const firebaseConfig = {
+            apiKey: "AIzaSyDuGdDF6jYPcZbQTpbGZPwnl3Qynr-LMWc",
+            authDomain: "defi-university-prod.firebaseapp.com",
+            projectId: "defi-university-prod",
+            storageBucket: "defi-university-prod.firebasestorage.app",
+            messagingSenderId: "309871336262",
+            appId: "1:309871336262:web:d2dc4be5729ac1d5a6a347"
+        };
+        
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const API_BASE_URL = 'https://defi-university-api-309871336262.us-central1.run.app/api';
+        let userToken = null;
+        let tracked = false;
+        
+        onAuthStateChanged(auth, async (user) => {
+            if (user) userToken = await user.getIdToken();
+        });
+        
+        window.trackInteraction = async function() {
+            if (!tracked && userToken) {
+                tracked = true;
+                try {
+                    await fetch(`${API_BASE_URL}/progress/interaction`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${userToken}`
+                        },
+                        body: JSON.stringify({
+                            courseId: 'defi-concepts',
+                            interactionId: 'token-economics-calculator',
+                            type: 'calculation'
+                        })
+                    });
+                } catch (e) {
+                    console.error('Tracking error:', e);
+                }
+            }
+        };
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+        }
+        h1, h2, h3, h4, .brand-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-white text-neutral-900 min-h-screen p-4 md:p-8">
+    <div class="max-w-3xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-2xl md:text-3xl font-semibold text-neutral-900 brand-font mb-2">Token Economics Calculator</h1>
+            <p class="text-neutral-500">Calculate token supply, market cap, and valuation metrics</p>
+        </div>
+        
+        <!-- Calculator -->
+        <div class="bg-white border border-neutral-200 rounded-xl p-6 shadow-sm">
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-neutral-700 mb-2">Total Supply</label>
+                    <input type="number" id="total-supply" value="1000000000" class="w-full px-4 py-2 border border-neutral-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-neutral-900">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-neutral-700 mb-2">Circulating Supply</label>
+                    <input type="number" id="circulating-supply" value="500000000" class="w-full px-4 py-2 border border-neutral-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-neutral-900">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-neutral-700 mb-2">Current Price (USD)</label>
+                    <input type="number" id="token-price" value="0.50" step="0.01" class="w-full px-4 py-2 border border-neutral-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-neutral-900">
+                </div>
+                <button onclick="calculateMetrics()" class="w-full px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-md shadow-blue-600/20">
+                    Calculate Metrics
+                </button>
+            </div>
+            
+            <!-- Results -->
+            <div id="results" class="hidden mt-6 pt-6 border-t border-neutral-200 space-y-3">
+                <div class="flex items-center justify-between">
+                    <span class="text-neutral-600">Market Cap</span>
+                    <span id="market-cap" class="text-neutral-900 font-bold text-lg">-</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="text-neutral-600">Fully Diluted Valuation</span>
+                    <span id="fdv" class="text-neutral-900 font-semibold">-</span>
+                </div>
+                <div class="flex items-center justify-between">
+                    <span class="text-neutral-600">Circulation Ratio</span>
+                    <span id="circulation-ratio" class="text-blue-600 font-semibold">-</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function calculateMetrics() {
+            const totalSupply = parseFloat(document.getElementById('total-supply').value);
+            const circulating = parseFloat(document.getElementById('circulating-supply').value);
+            const price = parseFloat(document.getElementById('token-price').value);
+            
+            if (!totalSupply || !circulating || !price) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            const marketCap = circulating * price;
+            const fdv = totalSupply * price;
+            const circulationRatio = (circulating / totalSupply) * 100;
+            
+            document.getElementById('market-cap').textContent = '$' + marketCap.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('fdv').textContent = '$' + fdv.toLocaleString('en-US', {maximumFractionDigits: 0});
+            document.getElementById('circulation-ratio').textContent = circulationRatio.toFixed(2) + '%';
+            
+            document.getElementById('results').classList.remove('hidden');
+            
+            if (!tracked) {
+                window.trackInteraction();
+            }
+        }
+    </script>
+</body>
+</html>

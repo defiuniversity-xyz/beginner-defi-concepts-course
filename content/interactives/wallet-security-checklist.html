@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallet Security Checklist | DeFi University</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+        import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+        
+        const firebaseConfig = {
+            apiKey: "AIzaSyDuGdDF6jYPcZbQTpbGZPwnl3Qynr-LMWc",
+            authDomain: "defi-university-prod.firebaseapp.com",
+            projectId: "defi-university-prod",
+            storageBucket: "defi-university-prod.firebasestorage.app",
+            messagingSenderId: "309871336262",
+            appId: "1:309871336262:web:d2dc4be5729ac1d5a6a347"
+        };
+        
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const API_BASE_URL = 'https://defi-university-api-309871336262.us-central1.run.app/api';
+        let userToken = null;
+        let tracked = false;
+        
+        onAuthStateChanged(auth, async (user) => {
+            if (user) userToken = await user.getIdToken();
+        });
+        
+        window.trackInteraction = async function() {
+            if (!tracked && userToken) {
+                tracked = true;
+                try {
+                    await fetch(`${API_BASE_URL}/progress/interaction`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${userToken}`
+                        },
+                        body: JSON.stringify({
+                            courseId: 'defi-concepts',
+                            interactionId: 'wallet-security-checklist',
+                            type: 'checklist'
+                        })
+                    });
+                } catch (e) {
+                    console.error('Tracking error:', e);
+                }
+            }
+        };
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+        }
+        h1, h2, h3, h4, .brand-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-white text-neutral-900 min-h-screen p-4 md:p-8">
+    <div class="max-w-2xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-2xl md:text-3xl font-semibold text-neutral-900 brand-font mb-2">Wallet Security Checklist</h1>
+            <p class="text-neutral-500">Interactive checklist for wallet security best practices</p>
+        </div>
+        
+        <!-- Checklist -->
+        <div class="bg-white border border-neutral-200 rounded-xl p-6 shadow-sm">
+            <div class="space-y-3" id="checklist-container">
+                <!-- Checklist items will be rendered here -->
+            </div>
+            
+            <!-- Progress -->
+            <div class="mt-6 pt-6 border-t border-neutral-200">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-sm text-neutral-600">Security Score</span>
+                    <span id="security-score" class="text-lg font-bold text-blue-600">0%</span>
+                </div>
+                <div class="w-full h-2 bg-neutral-200 rounded-full overflow-hidden">
+                    <div id="progress-bar" class="h-full bg-gradient-to-r from-blue-600 to-blue-500 rounded-full transition-all" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const checklistItems = [
+            { id: 'seed-phrase', text: 'Seed phrase stored securely offline (never digital)', critical: true },
+            { id: 'hardware-wallet', text: 'Using hardware wallet for large amounts', critical: false },
+            { id: '2fa', text: 'Two-factor authentication enabled', critical: true },
+            { id: 'backup', text: 'Multiple secure backups of seed phrase', critical: true },
+            { id: 'software-updates', text: 'Wallet software kept up to date', critical: false },
+            { id: 'phishing-awareness', text: 'Aware of phishing and scam tactics', critical: true },
+            { id: 'private-keys', text: 'Private keys never shared or stored online', critical: true },
+            { id: 'test-transactions', text: 'Test transactions before large transfers', critical: false }
+        ];
+        
+        function renderChecklist() {
+            const container = document.getElementById('checklist-container');
+            container.innerHTML = checklistItems.map(item => `
+                <label class="flex items-start gap-3 p-3 rounded-lg hover:bg-neutral-50 cursor-pointer border border-transparent hover:border-neutral-200 transition-colors">
+                    <input type="checkbox" 
+                           onchange="updateProgress()" 
+                           data-item-id="${item.id}"
+                           class="mt-1 w-5 h-5 text-blue-600 border-neutral-300 rounded focus:ring-blue-500">
+                    <div class="flex-1">
+                        <span class="text-sm text-neutral-900">${item.text}</span>
+                        ${item.critical ? '<span class="ml-2 text-xs text-red-600">Critical</span>' : ''}
+                    </div>
+                </label>
+            `).join('');
+        }
+        
+        function updateProgress() {
+            const checked = document.querySelectorAll('input[type="checkbox"]:checked').length;
+            const total = checklistItems.length;
+            const percent = Math.round((checked / total) * 100);
+            
+            document.getElementById('security-score').textContent = percent + '%';
+            document.getElementById('progress-bar').style.width = percent + '%';
+            
+            if (checked > 0 && !tracked) {
+                window.trackInteraction();
+            }
+        }
+        
+        renderChecklist();
+    </script>
+</body>
+</html>

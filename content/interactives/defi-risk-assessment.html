@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeFi Risk Assessment | DeFi University</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+        import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+        
+        const firebaseConfig = {
+            apiKey: "AIzaSyDuGdDF6jYPcZbQTpbGZPwnl3Qynr-LMWc",
+            authDomain: "defi-university-prod.firebaseapp.com",
+            projectId: "defi-university-prod",
+            storageBucket: "defi-university-prod.firebasestorage.app",
+            messagingSenderId: "309871336262",
+            appId: "1:309871336262:web:d2dc4be5729ac1d5a6a347"
+        };
+        
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const API_BASE_URL = 'https://defi-university-api-309871336262.us-central1.run.app/api';
+        let userToken = null;
+        let tracked = false;
+        
+        onAuthStateChanged(auth, async (user) => {
+            if (user) userToken = await user.getIdToken();
+        });
+        
+        window.trackInteraction = async function() {
+            if (!tracked && userToken) {
+                tracked = true;
+                try {
+                    await fetch(`${API_BASE_URL}/progress/interaction`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${userToken}`
+                        },
+                        body: JSON.stringify({
+                            courseId: 'defi-concepts',
+                            interactionId: 'defi-risk-assessment',
+                            type: 'assessment'
+                        })
+                    });
+                } catch (e) {
+                    console.error('Tracking error:', e);
+                }
+            }
+        };
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+        }
+        h1, h2, h3, h4, .brand-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-white text-neutral-900 min-h-screen p-4 md:p-8">
+    <div class="max-w-3xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <h1 class="text-2xl md:text-3xl font-semibold text-neutral-900 brand-font mb-2">DeFi Risk Assessment</h1>
+            <p class="text-neutral-500">Evaluate risks before interacting with DeFi protocols</p>
+        </div>
+        
+        <!-- Assessment Form -->
+        <div class="bg-white border border-neutral-200 rounded-xl p-6 shadow-sm">
+            <div class="space-y-6" id="assessment-container">
+                <!-- Questions will be rendered here -->
+            </div>
+            
+            <button onclick="calculateRisk()" class="w-full mt-6 px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-md shadow-blue-600/20">
+                Calculate Risk Score
+            </button>
+        </div>
+        
+        <!-- Results -->
+        <div id="results" class="hidden mt-6 bg-white border border-neutral-200 rounded-xl p-6 shadow-sm">
+            <h2 class="text-lg font-semibold text-neutral-900 brand-font mb-4">Risk Assessment Results</h2>
+            <div class="space-y-4">
+                <div>
+                    <div class="flex items-center justify-between mb-2">
+                        <span class="text-neutral-600">Overall Risk Score</span>
+                        <span id="risk-score" class="text-2xl font-bold">-</span>
+                    </div>
+                    <div class="w-full h-3 bg-neutral-200 rounded-full overflow-hidden">
+                        <div id="risk-bar" class="h-full rounded-full transition-all" style="width: 0%"></div>
+                    </div>
+                </div>
+                <div id="risk-recommendation" class="p-4 rounded-lg border">
+                    <!-- Recommendation text -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const questions = [
+            { id: 'audit', text: 'Protocol has been audited by reputable firms', weight: 3 },
+            { id: 'tvl', text: 'Total Value Locked (TVL) is substantial (>$10M)', weight: 2 },
+            { id: 'age', text: 'Protocol has been operating for >6 months', weight: 2 },
+            { id: 'governance', text: 'Active governance and community', weight: 1 },
+            { id: 'insurance', text: 'Insurance coverage available', weight: 2 },
+            { id: 'bug-bounty', text: 'Active bug bounty program', weight: 1 }
+        ];
+        
+        function renderQuestions() {
+            const container = document.getElementById('assessment-container');
+            container.innerHTML = questions.map((q, i) => `
+                <div class="flex items-start gap-3 p-4 rounded-lg border border-neutral-200 hover:border-blue-300 transition-colors">
+                    <input type="checkbox" 
+                           id="q${i}" 
+                           data-weight="${q.weight}"
+                           class="mt-1 w-5 h-5 text-blue-600 border-neutral-300 rounded focus:ring-blue-500">
+                    <label for="q${i}" class="flex-1 text-sm text-neutral-900 cursor-pointer">
+                        ${q.text}
+                    </label>
+                </div>
+            `).join('');
+        }
+        
+        function calculateRisk() {
+            const checked = document.querySelectorAll('input[type="checkbox"]:checked');
+            let totalWeight = 0;
+            let maxWeight = 0;
+            
+            questions.forEach(q => {
+                maxWeight += q.weight;
+            });
+            
+            checked.forEach(checkbox => {
+                totalWeight += parseInt(checkbox.dataset.weight);
+            });
+            
+            const riskScore = Math.round((totalWeight / maxWeight) * 100);
+            const riskPercentage = 100 - riskScore; // Invert for risk (higher score = lower risk)
+            
+            document.getElementById('risk-score').textContent = riskPercentage + '%';
+            document.getElementById('risk-score').className = 'text-2xl font-bold ' + 
+                (riskPercentage < 30 ? 'text-green-600' : riskPercentage < 60 ? 'text-orange-600' : 'text-red-600');
+            
+            const bar = document.getElementById('risk-bar');
+            bar.style.width = riskPercentage + '%';
+            bar.className = 'h-full rounded-full transition-all ' +
+                (riskPercentage < 30 ? 'bg-green-500' : riskPercentage < 60 ? 'bg-orange-500' : 'bg-red-500');
+            
+            const recommendation = document.getElementById('risk-recommendation');
+            let recText, recClass;
+            
+            if (riskPercentage < 30) {
+                recText = '✅ Low Risk: This protocol appears relatively safe. Still, only invest what you can afford to lose and diversify your positions.';
+                recClass = 'bg-green-50 border-green-200 text-green-800';
+            } else if (riskPercentage < 60) {
+                recText = '⚠️ Medium Risk: Exercise caution. Consider starting with smaller amounts and monitoring closely.';
+                recClass = 'bg-orange-50 border-orange-200 text-orange-800';
+            } else {
+                recText = '🚨 High Risk: Significant risks identified. Consider avoiding or using only minimal amounts.';
+                recClass = 'bg-red-50 border-red-200 text-red-800';
+            }
+            
+            recommendation.className = 'p-4 rounded-lg border ' + recClass;
+            recommendation.textContent = recText;
+            
+            document.getElementById('results').classList.remove('hidden');
+            
+            if (!tracked) {
+                window.trackInteraction();
+            }
+        }
+        
+        renderQuestions();
+    </script>
+</body>
+</html>

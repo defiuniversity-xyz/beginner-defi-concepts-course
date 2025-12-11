@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeFi Protocol Explorer | DeFi University</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+        import { getAuth, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js';
+        
+        const firebaseConfig = {
+            apiKey: "AIzaSyDuGdDF6jYPcZbQTpbGZPwnl3Qynr-LMWc",
+            authDomain: "defi-university-prod.firebaseapp.com",
+            projectId: "defi-university-prod",
+            storageBucket: "defi-university-prod.firebasestorage.app",
+            messagingSenderId: "309871336262",
+            appId: "1:309871336262:web:d2dc4be5729ac1d5a6a347"
+        };
+        
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const API_BASE_URL = 'https://defi-university-api-309871336262.us-central1.run.app/api';
+        let userToken = null;
+        let tracked = false;
+        
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                userToken = await user.getIdToken();
+            }
+        });
+        
+        window.trackInteraction = async function(interactionType) {
+            if (!tracked && userToken) {
+                tracked = true;
+                try {
+                    await fetch(`${API_BASE_URL}/progress/interaction`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${userToken}`
+                        },
+                        body: JSON.stringify({
+                            courseId: 'defi-concepts',
+                            interactionId: 'protocol-explorer',
+                            type: interactionType
+                        })
+                    });
+                } catch (e) {
+                    console.error('Tracking error:', e);
+                }
+            }
+        };
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+        }
+        h1, h2, h3, h4, .brand-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-white text-neutral-900 min-h-screen p-4 md:p-8">
+    <div class="max-w-4xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-8">
+            <div id="points-badge" class="hidden absolute top-4 right-4 bg-blue-50 border border-blue-200 text-blue-600 px-4 py-2 rounded-full text-sm font-semibold">
+                +15 points earned!
+            </div>
+            <h1 class="text-2xl md:text-3xl font-semibold text-neutral-900 brand-font mb-2">DeFi Protocol Explorer</h1>
+            <p class="text-neutral-500">Compare and explore different DeFi protocols</p>
+        </div>
+        
+        <!-- Filter Section -->
+        <div class="bg-white border border-neutral-200 rounded-xl p-4 mb-6 shadow-sm">
+            <div class="flex flex-wrap gap-2">
+                <button onclick="filterProtocols('all')" class="filter-btn active px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-colors">
+                    All Protocols
+                </button>
+                <button onclick="filterProtocols('lending')" class="filter-btn px-4 py-2 text-sm font-medium text-neutral-700 bg-white border border-neutral-200 rounded-lg hover:bg-neutral-50 transition-colors">
+                    Lending
+                </button>
+                <button onclick="filterProtocols('dex')" class="filter-btn px-4 py-2 text-sm font-medium text-neutral-700 bg-white border border-neutral-200 rounded-lg hover:bg-neutral-50 transition-colors">
+                    DEX
+                </button>
+                <button onclick="filterProtocols('yield')" class="filter-btn px-4 py-2 text-sm font-medium text-neutral-700 bg-white border border-neutral-200 rounded-lg hover:bg-neutral-50 transition-colors">
+                    Yield Farming
+                </button>
+            </div>
+        </div>
+        
+        <!-- Protocol Cards -->
+        <div id="protocols-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <!-- Protocols will be dynamically loaded -->
+        </div>
+    </div>
+    
+    <script>
+        const protocols = [
+            {
+                id: 'aave',
+                name: 'Aave',
+                category: 'lending',
+                description: 'Decentralized lending and borrowing protocol',
+                tvl: '$12.5B',
+                features: ['Lending', 'Borrowing', 'Flash Loans'],
+                risk: 'Low'
+            },
+            {
+                id: 'uniswap',
+                name: 'Uniswap',
+                category: 'dex',
+                description: 'Decentralized exchange using AMM',
+                tvl: '$3.2B',
+                features: ['Token Swaps', 'Liquidity Provision', 'V3 Concentrated Liquidity'],
+                risk: 'Medium'
+            },
+            {
+                id: 'compound',
+                name: 'Compound',
+                category: 'lending',
+                description: 'Algorithmic money market protocol',
+                tvl: '$2.1B',
+                features: ['Lending', 'Borrowing', 'Governance'],
+                risk: 'Low'
+            },
+            {
+                id: 'curve',
+                name: 'Curve',
+                category: 'dex',
+                description: 'Stablecoin-focused DEX',
+                tvl: '$1.8B',
+                features: ['Stablecoin Swaps', 'Low Slippage', 'Yield Farming'],
+                risk: 'Medium'
+            }
+        ];
+        
+        function filterProtocols(category) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active', 'bg-blue-600', 'text-white');
+                btn.classList.add('bg-white', 'text-neutral-700', 'border', 'border-neutral-200');
+            });
+            event.target.classList.add('active', 'bg-blue-600', 'text-white');
+            event.target.classList.remove('bg-white', 'text-neutral-700', 'border', 'border-neutral-200');
+            
+            const filtered = category === 'all' 
+                ? protocols 
+                : protocols.filter(p => p.category === category);
+            
+            renderProtocols(filtered);
+            if (!tracked) {
+                window.trackInteraction('filter');
+            }
+        }
+        
+        function renderProtocols(protocolsList) {
+            const container = document.getElementById('protocols-container');
+            container.innerHTML = protocolsList.map(protocol => `
+                <div class="bg-white border border-neutral-200 rounded-xl p-6 hover:border-blue-300 hover:shadow-lg transition-all shadow-sm">
+                    <div class="flex items-start justify-between mb-3">
+                        <h3 class="text-lg font-semibold text-neutral-900 brand-font">${protocol.name}</h3>
+                        <span class="px-2 py-1 text-xs font-medium rounded ${protocol.risk === 'Low' ? 'bg-green-50 text-green-600' : 'bg-orange-50 text-orange-600'}">
+                            ${protocol.risk} Risk
+                        </span>
+                    </div>
+                    <p class="text-sm text-neutral-500 mb-4">${protocol.description}</p>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex items-center justify-between text-sm">
+                            <span class="text-neutral-600">TVL</span>
+                            <span class="text-neutral-900 font-medium">${protocol.tvl}</span>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            ${protocol.features.map(f => `
+                                <span class="px-2 py-1 text-xs bg-blue-50 text-blue-600 rounded">${f}</span>
+                            `).join('')}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        renderProtocols(protocols);
+    </script>
+</body>
+</html>
