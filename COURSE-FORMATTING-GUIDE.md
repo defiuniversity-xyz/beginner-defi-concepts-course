@@ -862,9 +862,9 @@ lesson_number: 1
 course: {course-key}
 ---
 
-{% embed url="https://storage.googleapis.com/{bucket-name}/lesson-01/audio/lesson1 {Title}.m4a" %}
+{% embed url="https://storage.googleapis.com/{bucket-name}/lesson-01/audio/lesson1%20{Title}.m4a" %}
 
-{% embed url="https://storage.googleapis.com/{bucket-name}/lesson-01/video/lesson1 {Title}.mp4" %}
+{% embed url="https://storage.googleapis.com/{bucket-name}/lesson-01/video/lesson1%20{Title}.mp4" %}
 
 # Lesson 1: {Lesson Title}
 
