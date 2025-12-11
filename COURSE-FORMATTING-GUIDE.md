@@ -81,16 +81,34 @@ course: {course-key}
 **Place immediately after YAML frontmatter, before lesson title:**
 
 ```markdown
-{% embed url="https://storage.googleapis.com/{bucket-name}/lesson-{NN}/audio/{filename}.m4a" %}
+{% embed url="https://storage.googleapis.com/{bucket-name}/lesson-{NN}/audio/{url-encoded-filename}.m4a" %}
 
-{% embed url="https://storage.googleapis.com/{bucket-name}/lesson-{NN}/video/{filename}.mp4" %}
+{% embed url="https://storage.googleapis.com/{bucket-name}/lesson-{NN}/video/{url-encoded-filename}.mp4" %}
+```
+
+**Example:**
+```markdown
+{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-01/audio/lesson1%20History_of_Blockchain_Before_Bitcoin.m4a" %}
+
+{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-01/video/lesson1%20The_History_of_Trust.mp4" %}
 ```
 
 **Requirements:**
 - Audio embed first, then video embed
 - Empty line between embeds
 - Empty line after video embed before lesson title
-- Use exact filenames as uploaded to GCS
+- **URL-encode filenames**: Spaces must be encoded as `%20`, commas as `%2C`, ampersands as `%26`, etc.
+- Use GitBook's `{% embed url="..." %}` syntax (not HTML5 tags)
+- Filenames should match exactly as uploaded to GCS, but URL-encoded in the embed
+
+**URL Encoding Rules:**
+- Space → `%20`
+- Comma (`,`) → `%2C`
+- Ampersand (`&`) → `%26`
+- Underscore (`_`) → `_` (no encoding needed)
+- Hyphen (`-`) → `-` (no encoding needed)
+
+**Important:** GitBook requires URL-encoded filenames in embed URLs. The CORS configuration on the GCS bucket must allow GitBook domains for media playback to work.
 
 ### 3. Lesson Title
 
@@ -358,7 +376,17 @@ Use this interactive tool to estimate gas fees for different blockchain operatio
 1. Place files in `content/audio/`
 2. Run `tools/upload_media_to_gcs.py`
 3. Files uploaded to: `lesson-{NN}/audio/{filename}.m4a`
-4. Use generated URLs in lesson embeds
+4. Use generated URLs in lesson embeds with **URL encoding**
+
+**Embed Format:**
+```markdown
+{% embed url="https://storage.googleapis.com/{bucket-name}/lesson-{NN}/audio/{url-encoded-filename}.m4a" %}
+```
+
+**Important:** Filenames with spaces, commas, or special characters must be URL-encoded in the embed URL:
+- Space → `%20`
+- Comma (`,`) → `%2C`
+- Ampersand (`&`) → `%26`
 
 ### Video Files
 
@@ -372,7 +400,41 @@ Use this interactive tool to estimate gas fees for different blockchain operatio
 1. Place files in `content/video/`
 2. Run `tools/upload_media_to_gcs.py`
 3. Files uploaded to: `lesson-{NN}/video/{filename}.mp4`
-4. Use generated URLs in lesson embeds
+4. Use generated URLs in lesson embeds with **URL encoding**
+
+**Embed Format:**
+```markdown
+{% embed url="https://storage.googleapis.com/{bucket-name}/lesson-{NN}/video/{url-encoded-filename}.mp4" %}
+```
+
+**Important:** Filenames with spaces, commas, or special characters must be URL-encoded in the embed URL:
+- Space → `%20`
+- Comma (`,`) → `%2C`
+- Ampersand (`&`) → `%26`
+
+### CORS Configuration (Required for GitBook)
+
+**Critical:** The GCS bucket must have CORS configured to allow GitBook domains to access media files.
+
+**Configuration File:** `tools/cors_config.json`
+
+**Apply CORS using gcloud CLI:**
+```bash
+gcloud storage buckets update gs://{bucket-name} --cors-file=tools/cors_config.json
+```
+
+**Or use the Python script:**
+```bash
+cd tools
+python3 configure_cors.py
+```
+
+**CORS Configuration allows:**
+- GitBook domains (`app.gitbook.com`, `*.gitbook.com`, `*.gitbook.io`)
+- GET, HEAD, OPTIONS methods
+- Required headers for media streaming
+
+**Without CORS:** Audio and video files will not play in GitBook, even if URLs are correct.
 
 ### Images
 
@@ -439,6 +501,52 @@ gcloud storage buckets add-iam-policy-binding gs://{bucket-name} \
   --role=roles/storage.legacyBucketWriter \
   --project=defi-university
 ```
+
+### CORS Configuration (Required)
+
+**After creating buckets, configure CORS to allow GitBook access:**
+
+1. **Create CORS config file** (`tools/cors_config.json`):
+```json
+[
+  {
+    "origin": [
+      "https://app.gitbook.com",
+      "https://*.gitbook.com",
+      "https://*.gitbook.io",
+      "https://gitbook.com",
+      "*"
+    ],
+    "method": ["GET", "HEAD", "OPTIONS"],
+    "responseHeader": [
+      "Content-Type",
+      "Content-Length",
+      "Content-Range",
+      "Accept-Ranges",
+      "Content-Disposition",
+      "Access-Control-Allow-Origin",
+      "Access-Control-Allow-Methods",
+      "Access-Control-Allow-Headers",
+      "Access-Control-Max-Age"
+    ],
+    "maxAgeSeconds": 3600
+  }
+]
+```
+
+2. **Apply CORS to media bucket:**
+```bash
+gcloud storage buckets update gs://{course-name}-gitbook-media --cors-file=tools/cors_config.json
+```
+
+**Note:** CORS is only needed for the media bucket (audio/video), not the images bucket.
+
+**Verification:**
+```bash
+curl -I -H "Origin: https://app.gitbook.com" "https://storage.googleapis.com/{bucket-name}/lesson-01/audio/{file}.m4a" | grep -i "access-control"
+```
+
+Should return: `access-control-allow-origin: *`
 
 ---
 
