@@ -4,15 +4,11 @@ lesson_number: 3
 course: defi-concepts
 ---
 
-<audio controls>
-  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-03/audio/lesson3 Blockchain_Trilemma_and_Layer_2_Rollups.m4a" type="audio/mp4">
-  Your browser does not support the audio element.
-</audio>
+{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-03/audio/lesson3%20Blockchain_Trilemma_and_Layer_2_Rollups.m4a" %}
 
-<video width="100%" controls>
-  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-03/video/lesson3 The_Blockchain_Trilemma.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+
+{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-03/video/lesson3%20The_Blockchain_Trilemma.mp4" %}
+
 
 # Lesson 3: Blockchain Infrastructure
 

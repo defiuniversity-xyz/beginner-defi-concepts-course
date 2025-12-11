@@ -4,15 +4,11 @@ lesson_number: 2
 course: defi-concepts
 ---
 
-<audio controls>
-  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-02/audio/lesson2 TradFi_CeFi_DeFi_Architecture_and_Risk.m4a" type="audio/mp4">
-  Your browser does not support the audio element.
-</audio>
+{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-02/audio/lesson2%20TradFi_CeFi_DeFi_Architecture_and_Risk.m4a" %}
 
-<video width="100%" controls>
-  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-02/video/lesson2 TradFi,_CeFi,_&_DeFi.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+
+{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-02/video/lesson2%20TradFi%2C_CeFi%2C_%26_DeFi.mp4" %}
+
 
 # Lesson 2: TradFi, CeFi, and DeFi
 

@@ -4,15 +4,11 @@ lesson_number: 8
 course: defi-concepts
 ---
 
-<audio controls>
-  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-08/audio/lesson8 DeFi_Lending_Overcollateralization_and_Liquidation_Math.m4a" type="audio/mp4">
-  Your browser does not support the audio element.
-</audio>
+{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-08/audio/lesson8%20DeFi_Lending_Overcollateralization_and_Liquidation_Math.m4a" %}
 
-<video width="100%" controls>
-  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-08/video/lesson8 DeFi_Lending_Demystified.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+
+{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-08/video/lesson8%20DeFi_Lending_Demystified.mp4" %}
+
 
 # Lesson 8: DeFi Lending and Borrowing
 

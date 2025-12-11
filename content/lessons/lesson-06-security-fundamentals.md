@@ -4,15 +4,11 @@ lesson_number: 6
 course: defi-concepts
 ---
 
-<audio controls>
-  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-06/audio/lesson6 Token_Approvals_Are_Your_DeFi_Security_Debt.m4a" type="audio/mp4">
-  Your browser does not support the audio element.
-</audio>
+{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-06/audio/lesson6%20Token_Approvals_Are_Your_DeFi_Security_Debt.m4a" %}
 
-<video width="100%" controls>
-  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-06/video/lesson6 Crypto_s_Approval_Threat.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+
+{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-06/video/lesson6%20Crypto_s_Approval_Threat.mp4" %}
+
 
 # Lesson 6: Security Fundamentals
 
