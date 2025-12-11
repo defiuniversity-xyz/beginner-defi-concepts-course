@@ -4,9 +4,15 @@ lesson_number: 10
 course: defi-concepts
 ---
 
-{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-10/audio/lesson10 Flash_Loans_Weaponizing_Instant_Capital.m4a" %}
+<audio controls>
+  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-10/audio/lesson10 Flash_Loans_Weaponizing_Instant_Capital.m4a" type="audio/mp4">
+  Your browser does not support the audio element.
+</audio>
 
-{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-10/video/lesson10 Flash_Loans__DeFi_s_Magic.mp4" %}
+<video width="100%" controls>
+  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-10/video/lesson10 Flash_Loans__DeFi_s_Magic.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 # Lesson 10: Flash Loans and Advanced Primitives
 

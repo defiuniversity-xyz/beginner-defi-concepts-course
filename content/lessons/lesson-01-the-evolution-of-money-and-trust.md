@@ -4,9 +4,15 @@ lesson_number: 1
 course: defi-concepts
 ---
 
-{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-01/audio/lesson1 History_of_Blockchain_Before_Bitcoin.m4a" %}
+<audio controls>
+  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-01/audio/lesson1 History_of_Blockchain_Before_Bitcoin.m4a" type="audio/mp4">
+  Your browser does not support the audio element.
+</audio>
 
-{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-01/video/lesson1 The_History_of_Trust.mp4" %}
+<video width="100%" controls>
+  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-01/video/lesson1 The_History_of_Trust.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 # Lesson 1: The Evolution of Money and Trust
 

@@ -4,9 +4,15 @@ lesson_number: 5
 course: defi-concepts
 ---
 
-{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-05/audio/lesson5 Seed_Phrases_Private_Keys_Wallet_Security.m4a" %}
+<audio controls>
+  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-05/audio/lesson5 Seed_Phrases_Private_Keys_Wallet_Security.m4a" type="audio/mp4">
+  Your browser does not support the audio element.
+</audio>
 
-{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-05/video/lesson5 Crypto_Self-Custody.mp4" %}
+<video width="100%" controls>
+  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-05/video/lesson5 Crypto_Self-Custody.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 # Lesson 5: Wallets and Self-Custody
 

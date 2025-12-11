@@ -4,9 +4,15 @@ lesson_number: 4
 course: defi-concepts
 ---
 
-{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-04/audio/lesson4 Automated_Trust_Built_With_Money_Legos.m4a" %}
+<audio controls>
+  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-04/audio/lesson4 Automated_Trust_Built_With_Money_Legos.m4a" type="audio/mp4">
+  Your browser does not support the audio element.
+</audio>
 
-{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-04/video/lesson4 Vending_Machines_to_Money_Legos.mp4" %}
+<video width="100%" controls>
+  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-04/video/lesson4 Vending_Machines_to_Money_Legos.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 # Lesson 4: Smart Contracts and Token Standards
 

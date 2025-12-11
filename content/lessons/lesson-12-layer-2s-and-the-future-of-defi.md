@@ -4,9 +4,15 @@ lesson_number: 12
 course: defi-concepts
 ---
 
-{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-12/audio/lesson12 Rollups_Real_World_Assets_Institutional_DeFi.m4a" %}
+<audio controls>
+  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-12/audio/lesson12 Rollups_Real_World_Assets_Institutional_DeFi.m4a" type="audio/mp4">
+  Your browser does not support the audio element.
+</audio>
 
-{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-12/video/lesson12 The_Future_of_DeFi.mp4" %}
+<video width="100%" controls>
+  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-12/video/lesson12 The_Future_of_DeFi.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 # Lesson 12: Layer 2s and the Future of DeFi
 

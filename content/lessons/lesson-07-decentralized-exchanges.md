@@ -4,9 +4,15 @@ lesson_number: 7
 course: defi-concepts
 ---
 
-{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-07/audio/lesson7 AMM_Math_and_Impermanent_Loss_Explained.m4a" %}
+<audio controls>
+  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-07/audio/lesson7 AMM_Math_and_Impermanent_Loss_Explained.m4a" type="audio/mp4">
+  Your browser does not support the audio element.
+</audio>
 
-{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-07/video/lesson7 Engine_of_DeFi_Trading.mp4" %}
+<video width="100%" controls>
+  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-07/video/lesson7 Engine_of_DeFi_Trading.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 # Lesson 7: Decentralized Exchanges
 

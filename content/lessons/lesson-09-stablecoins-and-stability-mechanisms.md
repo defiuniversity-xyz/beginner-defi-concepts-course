@@ -4,9 +4,15 @@ lesson_number: 9
 course: defi-concepts
 ---
 
-{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-09/audio/lesson9 Stablecoin_Trilemma_and_Its_Three_Types.m4a" %}
+<audio controls>
+  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-09/audio/lesson9 Stablecoin_Trilemma_and_Its_Three_Types.m4a" type="audio/mp4">
+  Your browser does not support the audio element.
+</audio>
 
-{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-09/video/lesson9 Stablecoins__Digital_Dollar.mp4" %}
+<video width="100%" controls>
+  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-09/video/lesson9 Stablecoins__Digital_Dollar.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 # Lesson 9: Stablecoins and Stability Mechanisms
 
