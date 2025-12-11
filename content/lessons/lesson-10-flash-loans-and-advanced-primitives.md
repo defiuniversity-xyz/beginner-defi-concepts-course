@@ -4,17 +4,10 @@ lesson_number: 10
 course: defi-concepts
 ---
 
-<audio controls preload="metadata">
-  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-10/audio/lesson10 Flash_Loans_Weaponizing_Instant_Capital.m4a" type="audio/mp4">
-  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-10/audio/lesson10 Flash_Loans_Weaponizing_Instant_Capital.m4a" type="audio/x-m4a">
-  <p>Your browser does not support audio playback. <a href="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-10/audio/lesson10 Flash_Loans_Weaponizing_Instant_Capital.m4a" download>Download audio file</a></p>
-</audio>
+{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-10/audio/lesson10%20Flash_Loans_Weaponizing_Instant_Capital.m4a" %}
 
 
-<video width="100%" controls preload="metadata">
-  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-10/video/lesson10 Flash_Loans__DeFi_s_Magic.mp4" type="video/mp4">
-  <p>Your browser does not support video playback. <a href="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-10/video/lesson10 Flash_Loans__DeFi_s_Magic.mp4" download>Download video file</a></p>
-</video>
+{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-10/video/lesson10%20Flash_Loans__DeFi_s_Magic.mp4" %}
 
 
 # Lesson 10: Flash Loans and Advanced Primitives

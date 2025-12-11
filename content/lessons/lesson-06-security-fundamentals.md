@@ -4,17 +4,10 @@ lesson_number: 6
 course: defi-concepts
 ---
 
-<audio controls preload="metadata">
-  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-06/audio/lesson6 Token_Approvals_Are_Your_DeFi_Security_Debt.m4a" type="audio/mp4">
-  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-06/audio/lesson6 Token_Approvals_Are_Your_DeFi_Security_Debt.m4a" type="audio/x-m4a">
-  <p>Your browser does not support audio playback. <a href="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-06/audio/lesson6 Token_Approvals_Are_Your_DeFi_Security_Debt.m4a" download>Download audio file</a></p>
-</audio>
+{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-06/audio/lesson6%20Token_Approvals_Are_Your_DeFi_Security_Debt.m4a" %}
 
 
-<video width="100%" controls preload="metadata">
-  <source src="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-06/video/lesson6 Crypto_s_Approval_Threat.mp4" type="video/mp4">
-  <p>Your browser does not support video playback. <a href="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-06/video/lesson6 Crypto_s_Approval_Threat.mp4" download>Download video file</a></p>
-</video>
+{% embed url="https://storage.googleapis.com/beginner-defi-crypto-concepts-gitbook-media/lesson-06/video/lesson6%20Crypto_s_Approval_Threat.mp4" %}
 
 
 # Lesson 6: Security Fundamentals
